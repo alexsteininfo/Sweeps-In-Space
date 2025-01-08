@@ -1,0 +1,274 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      8448,        266]
+NotebookOptionsPosition[      6684,        224]
+NotebookOutlinePosition[      7079,        240]
+CellTagsIndexPosition[      7036,        237]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Define fX(x) and fY(y|X=x) whose computations were made by hand\
+\>", "Subsubsection",
+ CellChangeTimes->{{3.915799601873554*^9, 3.915799617183683*^9}, {
+  3.915799649298202*^9, 
+  3.915799655329721*^9}},ExpressionUUID->"a7336ced-d016-407f-8b38-\
+5aa3f4367bde"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"fX", "[", "x_", "]"}], ":=", 
+  RowBox[{"2", "*", 
+   RowBox[{"x", "/", 
+    RowBox[{"theta", "^", "2"}]}], "*", 
+   RowBox[{"Exp", "[", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"x", "^", "2"}]}], "/", 
+     RowBox[{"theta", "^", "2"}]}], "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fYX", "[", 
+   RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+  RowBox[{"1", "/", "x"}]}]}], "Input",
+ CellChangeTimes->{{3.915799021582081*^9, 3.915799060739085*^9}, {
+   3.91579909749023*^9, 3.915799117632237*^9}, 3.9157992307946367`*^9, {
+   3.9157995468175097`*^9, 3.915799547177457*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"35d447bd-b354-447d-8347-cabc62163c00"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Now, marginilize out y from fY(y|X=x)", "Subsubsection",
+ CellChangeTimes->{{3.9157996396927013`*^9, 
+  3.915799672126137*^9}},ExpressionUUID->"e430f591-a777-4dea-b3fd-\
+002cbf2977d1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Integrate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"fX", "[", "x", "]"}], "*", 
+    RowBox[{"fYX", "[", 
+     RowBox[{"x", ",", "y"}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y", ",", "Infinity"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.915799151326535*^9, 3.915799180716689*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"de73ac29-dd09-409f-9742-218caeafca29"],
+
+Cell[BoxData[
+ TemplateBox[{
+   FractionBox[
+    RowBox[{
+      SqrtBox["\[Pi]"], " ", 
+      RowBox[{"(", 
+        RowBox[{
+          FractionBox["1", 
+           SqrtBox[
+            FractionBox["1", 
+             SuperscriptBox["theta", "2"]]]], "-", 
+          RowBox[{"theta", " ", 
+            RowBox[{"Erf", "[", 
+              FractionBox["y", "theta"], "]"}]}]}], ")"}]}], 
+    SuperscriptBox["theta", "2"]], 
+   RowBox[{
+     RowBox[{"Re", "[", 
+       SuperscriptBox["theta", "2"], "]"}], ">", "0"}]},
+  "ConditionalExpression"]], "Output",
+ CellChangeTimes->{3.915799185582679*^9, 3.915799237167459*^9, 
+  3.915799555951212*^9},
+ CellLabel->"Out[12]=",ExpressionUUID->"b56e5d6e-9220-4251-8926-de3dc59a547d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  FractionBox[
+   RowBox[{
+    SqrtBox["\[Pi]"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox["1", 
+       SqrtBox[
+        FractionBox["1", 
+         SuperscriptBox["theta", "2"]]]], "-", 
+      RowBox[{"theta", " ", 
+       RowBox[{"Erf", "[", 
+        FractionBox["y", "theta"], "]"}]}]}], ")"}]}], 
+   SuperscriptBox["theta", "2"]], "]"}]], "Input",
+ CellChangeTimes->{{3.915799192220688*^9, 3.915799198759802*^9}, 
+   3.915799244136393*^9, 3.915799564402066*^9},
+ CellLabel->"In[13]:=",ExpressionUUID->"b136a22d-5778-4c91-bb34-50799b6db742"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   SqrtBox["\[Pi]"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     FractionBox["1", 
+      SqrtBox[
+       FractionBox["1", 
+        SuperscriptBox["theta", "2"]]]], "-", 
+     RowBox[{"theta", " ", 
+      RowBox[{"Erf", "[", 
+       FractionBox["y", "theta"], "]"}]}]}], ")"}]}], 
+  SuperscriptBox["theta", "2"]]], "Output",
+ CellChangeTimes->{3.9157991992890167`*^9, 3.915799244965722*^9, 
+  3.9157995650890293`*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"f8e16289-c1fc-49d1-b8a7-35bddb1341f4"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Now, we use that the Erf function is related to the Gamma function: erf(x) = \
+1 - Gamma[1/2,x^2]/sqrt(pi) \
+\>", "Subsubsection",
+ CellChangeTimes->{{3.915799693995455*^9, 
+  3.915799748298077*^9}},ExpressionUUID->"2364a743-436b-44c4-8caa-\
+858d5c6e27aa"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Sqrt", "[", "Pi", "]"}], "/", "theta"}], "*", 
+   RowBox[{"(", 
+    RowBox[{"1", "-", 
+     RowBox[{"(", 
+      RowBox[{"1", "-", 
+       RowBox[{
+        RowBox[{"1", "/", 
+         RowBox[{"Sqrt", "[", "Pi", "]"}]}], "*", 
+        RowBox[{"Gamma", "[", 
+         RowBox[{
+          RowBox[{"1", "/", "2"}], ",", 
+          RowBox[{
+           RowBox[{"y", "^", "2"}], "/", 
+           RowBox[{"theta", "^", "2"}]}]}], "]"}]}]}], ")"}]}], ")"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9157997626596403`*^9, 3.915799880163662*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"3f0d145f-975c-4256-a1af-49c40e73a97f"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"Gamma", "[", 
+   RowBox[{
+    FractionBox["1", "2"], ",", 
+    FractionBox[
+     SuperscriptBox["y", "2"], 
+     SuperscriptBox["theta", "2"]]}], "]"}], "theta"]], "Output",
+ CellChangeTimes->{3.915799882616088*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"c361a0ea-30e0-48ef-9f81-cebf24ddb9e5"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Testing normalization", "Subsubsection",
+ CellChangeTimes->{{3.91580071081422*^9, 
+  3.915800714780971*^9}},ExpressionUUID->"f86bda5a-fb14-435c-aeed-\
+fe7bdad0d4b0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Integrate", "[", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"Gamma", "[", 
+     RowBox[{
+      FractionBox["1", "2"], ",", 
+      FractionBox[
+       SuperscriptBox["y", "2"], 
+       SuperscriptBox["theta", "2"]]}], "]"}], "theta"], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", "0", ",", "Infinity"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9158006920791607`*^9, 3.915800703662629*^9}},
+ CellLabel->"In[27]:=",ExpressionUUID->"b4edec03-6b98-47a2-b7b5-26da93337080"],
+
+Cell[BoxData[
+ TemplateBox[{
+   FractionBox["1", 
+    RowBox[{
+      SqrtBox[
+       FractionBox["1", 
+        SuperscriptBox["theta", "2"]]], " ", "theta"}]], 
+   RowBox[{
+     RowBox[{"Re", "[", 
+       SuperscriptBox["theta", "2"], "]"}], "\[GreaterEqual]", "0"}]},
+  "ConditionalExpression"]], "Output",
+ CellChangeTimes->{3.915800713001219*^9},
+ CellLabel->"Out[27]=",ExpressionUUID->"51628cfa-9c7d-44d2-b6b0-df85c544a470"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1728, 975},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"13.0 for Mac OS X ARM (64-bit) (December 2, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3bcc45ef-dbe7-4edd-b650-5158b733c886"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 271, 6, 45, "Subsubsection",ExpressionUUID->"a7336ced-d016-407f-8b38-5aa3f4367bde"],
+Cell[854, 30, 702, 18, 52, "Input",ExpressionUUID->"35d447bd-b354-447d-8347-cabc62163c00"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1593, 53, 190, 3, 45, "Subsubsection",ExpressionUUID->"e430f591-a777-4dea-b3fd-002cbf2977d1"],
+Cell[CellGroupData[{
+Cell[1808, 60, 409, 10, 30, "Input",ExpressionUUID->"de73ac29-dd09-409f-9742-218caeafca29"],
+Cell[2220, 72, 719, 21, 102, "Output",ExpressionUUID->"b56e5d6e-9220-4251-8926-de3dc59a547d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2976, 98, 602, 17, 94, "Input",ExpressionUUID->"b136a22d-5778-4c91-bb34-50799b6db742"],
+Cell[3581, 117, 531, 16, 92, "Output",ExpressionUUID->"f8e16289-c1fc-49d1-b8a7-35bddb1341f4"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4161, 139, 266, 6, 45, "Subsubsection",ExpressionUUID->"2364a743-436b-44c4-8caa-858d5c6e27aa"],
+Cell[CellGroupData[{
+Cell[4452, 149, 696, 20, 30, "Input",ExpressionUUID->"3f0d145f-975c-4256-a1af-49c40e73a97f"],
+Cell[5151, 171, 333, 9, 64, "Output",ExpressionUUID->"c361a0ea-30e0-48ef-9f81-cebf24ddb9e5"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5533, 186, 171, 3, 45, "Subsubsection",ExpressionUUID->"f86bda5a-fb14-435c-aeed-fe7bdad0d4b0"],
+Cell[CellGroupData[{
+Cell[5729, 193, 496, 13, 61, "Input",ExpressionUUID->"b4edec03-6b98-47a2-b7b5-26da93337080"],
+Cell[6228, 208, 428, 12, 77, "Output",ExpressionUUID->"51628cfa-9c7d-44d2-b6b0-df85c544a470"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
