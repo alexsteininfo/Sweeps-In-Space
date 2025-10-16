@@ -5,6 +5,6 @@ This repository provides code used in the manuscript "Selective sweep probabilit
 The code files are divided into three folders:
 - **Supporting mathematica scripts** contains calculations with Mathematica.
 - **Figures** contains code to analyse processed simulation data and generate figures
-- **Analysis code** contains additional code to analyse rho simulation data
+- **Analysis code** contains additional code to analyse raw simulation data
 
 Simulations were run using the workflow **warlock**, which is based on the **demon** simulation framework. The code can be found at [https://github.com/AngryMaciek/warlock]{https://github.com/AngryMaciek/warlock} and [https://github.com/robjohnnoble/demon_model]{https://github.com/robjohnnoble/demon_model} respectively. Configuration files and simulated data can be downloaded from [https://doi.org/10.5281/zenodo.10775383]{https://doi.org/10.5281/zenodo.10775383}.
