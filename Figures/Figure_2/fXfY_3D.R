@@ -7,7 +7,7 @@ library("expint")     # import of incomplete gamma function
 library("ggtext")     # for text conversion in axis labels
 library("RColorBrewer")
 
-setwd("/Users/stein02/Desktop/Plots for the Sweeps/Plots with analytical/")
+setwd("/Users/alexanderstein/Documents/GitHub/Sweeps-In-Space/Figures/Figure_2/figures/")
 
 # Define paramters
 mu <- 1e-5
@@ -15,7 +15,7 @@ c_wt <- 0.152
 c_m <- 0.307
 rho <- 0.234
 
-theta_3d <- (3*c_wt/pi/mu)^(1/4)
+theta_3d <- (3*c_wt/pi/(rho*mu))^(1/4)
 #theta_3d <- 1.0
 
 xaxis <- 1:3000/100
@@ -60,7 +60,7 @@ fig3C <- ggplot() +
         legend.position = c(0.9,0.8), legend.title = element_blank(), legend.text = element_markdown())
 
 a = 1.5
-ggsave("/Users/stein02/Desktop/Plots for the Sweeps/Figure_2/figures/fig3C.png", fig3C, width = 4^a, height = 3^a)
+ggsave("fig3C.png", fig3C, width = 4^a, height = 3^a)
 
 
 
