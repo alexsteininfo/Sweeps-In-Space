@@ -7,7 +7,8 @@ library("expint")     # import of incomplete gamma function
 library("ggtext")     # for text conversion in axis labels
 library("RColorBrewer")
 
-setwd("/Users/stein02/Desktop/Plots for the Sweeps/Plots with analytical/")
+# Make sure to start in the correct working directory
+#setwd("/Figures/Figure_2/")
 
 # Define paramters
 mu <- 1e-5
@@ -61,6 +62,6 @@ fig3A <- ggplot() +
         legend.position = c(0.9,0.8), legend.title = element_blank(), legend.text = element_markdown())
 
 a = 1.5
-ggsave("/Users/stein02/Desktop/Plots for the Sweeps/Figure_2/figures/fig3A.png", fig3A, width = 4^a, height = 3^a)
+ggsave("/figures/fig3A.png", fig3A, width = 4^a, height = 3^a)
 
 
