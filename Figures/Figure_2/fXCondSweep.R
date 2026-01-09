@@ -7,7 +7,9 @@ library("ggtext")
 library("RColorBrewer")
 library(pracma, include.only = c("logseq"))
 
-setwd("/Users/stein02/Desktop/Plots for the Sweeps/Figure_2/")
+# Make sure to start in the correct working directory
+setwd("~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_2")
+pathtosave <- "~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_2/figures/"
 
 ### Import and process data
 df <- read_csv("numerical_data/x conditioned on sweep.csv")
@@ -93,7 +95,7 @@ fig <- ggplot() +
   theme(axis.title.x = element_markdown(), axis.title.y = element_markdown(), legend.position = "none")
 
 a = 1.5
-ggsave("/Users/stein02/Desktop/Plots for the Sweeps/Figure_2/figures/fXCondSweep.png", fig, width = 4^a, height = 3^a)
+ggsave(paste(pathtosave,"fXCondSweep.pdf",sep=""), fig, width = 4^a, height = 3^a)
 
 
 

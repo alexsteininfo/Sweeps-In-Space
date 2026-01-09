@@ -6,7 +6,9 @@ library("tidyverse")
 library("ggtext")
 library("RColorBrewer")
 
-setwd("/Users/stein02/Desktop/Plots for the Sweeps/Figure_2/")
+# Make sure to start in the correct working directory
+setwd("~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_2")
+pathtosave <- "~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_2/figures/"
 
 ### Import data
 
@@ -66,7 +68,7 @@ fig4B <- ggplot() +
   theme(axis.title.x = element_markdown(), axis.title.y = element_markdown(), legend.position = "none")
 
 a = 1.5
-ggsave("/Users/stein02/Desktop/Plots for the Sweeps/Figure_2/figures/Sweep.png", fig4B, width = 4^a, height = 3^a)
+ggsave(paste(pathtosave,"Sweep.pdf",sep=""), fig4B, width = 4^a, height = 3^a)
 
 
 

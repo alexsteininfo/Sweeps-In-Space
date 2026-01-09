@@ -9,7 +9,8 @@ library("tidyverse")
 library("ggtext")
 library("RColorBrewer")
 
-setwd("/Users/stein02/Desktop/Plots for the Sweeps/Figure_3/")
+pathtosave <- "~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_4/figures/"
+setwd("~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_4/")
 
 ###################
 ### Import data ###
@@ -149,95 +150,64 @@ fix <- (1-1/(1+s_vector))/(1-1/(1+s_vector)^16)
 ### Plots ###
 #############
 
-cols <- brewer.pal(12,"Paired")
+# --- Labels (define ONCE) ---
+#sim_1 <- "simulations, µ=10<sup>-4</sup>"
+#sim_2 <- "simulations, µ=10<sup>-5</sup>"
+#sim_3 <- "simulations, µ=10<sup>-6</sup>"
 
-legend_1 <- "simulation"
-legend_2 <- "prediction (exact)"
-legend_3 <- "prediction (approx.)"
+sim_1 <- "simulations, <i>μ̃</i>=10<sup>-4</sup>"
+sim_2 <- "simulations, <i>μ̃</i>=10<sup>-5</sup>"
+sim_3 <- "simulations, <i>μ̃</i>=10<sup>-6</sup>"
 
-colours <- t(c(cols[4],cols[3]))
-colnames(colours) <- c(legend_2, legend_3)
 
-lty <- t(c("22", "solid"))
-colnames(lty) <- c(legend_2, legend_3)
+pred_1 <- "prediction (exact)"
+pred_2 <- "prediction (approx.)"
 
-ggplot() +
-  geom_line(aes(x=2:20, y=df_num$twodim, linetype=legend_2, color=legend_2), size=1.5) +
-  geom_line(aes(x=xaxis, y=sweep_ana,linetype=legend_3, color=legend_3), linewidth=1.5) +
-  geom_point(aes(x=x_data, y=y_data1), color="black", size=4.0, shape=16) +
-  geom_point(aes(x=x_data, y=y_data2), color="black", size=4.0, shape=17) +
-  geom_point(aes(x=x_data, y=y_data3), color="black", size=4.0, shape=18) +
-  #geom_line(aes(x=x_data, y=fix),col = "black", linewidth=2.0) +
-  labs(x="ratio of fitness difference, *a<sub>m* / *a<sub>wt*", y="Pr(sweep)") +
-  xlim(1,20) + ylim(0,1) +
+# --- Manual scales (named vectors) ---
+cols <- brewer.pal(12, "Paired")
+
+colours   <- setNames(c(cols[4], cols[3]), c(pred_1, pred_2))
+linetypes <- setNames(c("22", "solid"),     c(pred_1, pred_2))
+shapes    <- setNames(c(16, 17, 18),        c(sim_1, sim_2, sim_3))
+
+# --- Plot ---
+fig <- ggplot() +
+  # prediction lines
+  geom_line(aes(x = 2:20,  y = df_num$twodim, color = pred_1, linetype = pred_1),
+            linewidth = 1.5) +
+  geom_line(aes(x = xaxis, y = sweep_ana,     color = pred_2, linetype = pred_2),
+            linewidth = 1.5) +
+  
+  # simulation points (shape mapped -> legend)
+  geom_point(aes(x = x_data, y = y_data1, shape = sim_1), size = 4, colour = "black") +
+  geom_point(aes(x = x_data, y = y_data2, shape = sim_2), size = 4, colour = "black") +
+  geom_point(aes(x = x_data, y = y_data3, shape = sim_3), size = 4, colour = "black") +
+  
+  # IMPORTANT: use VALUES only (breaks optional)
   scale_color_manual(values = colours) +
-  scale_linetype_manual(values = lty) +
-  theme_bw(base_size = 25) +
-  theme(axis.title.x = element_markdown(), axis.title.y = element_markdown(), 
-        legend.position = c(0.8,0.2), legend.title = element_blank())
-
-
-### Save the figure
-
-fig5B <- ggplot() +
-  geom_line(aes(x=2:20, y=df_num$twodim, linetype=legend_2, color=legend_2), size=1.5) +
-  geom_line(aes(x=xaxis, y=sweep_ana, linetype=legend_3, color=legend_3), linewidth=1.5) +
-  geom_point(aes(x=x_data, y=y_data1), color="black", size=4.0, shape=16) +
-  geom_point(aes(x=x_data, y=y_data2), color="black", size=4.0, shape=17) +
-  geom_point(aes(x=x_data, y=y_data3), color="black", size=4.0, shape=18) +
-  #geom_line(aes(x=x_data, y=fix),col = "black", linewidth=2.0) +
-  labs(x="ratio of fitness difference, *a<sub>m* / *a<sub>wt*", y="Pr(sweep)") +
-  xlim(1,20) + ylim(0,1) +
-  scale_color_manual(values = colours) +
-  scale_linetype_manual(values = lty) +
-  theme_bw(base_size = 25) +
-  theme(axis.title.x = element_markdown(), axis.title.y = element_markdown(), 
-        legend.position = c(0.7,0.2), legend.title = element_blank())
-
-a = 1.5
-ggsave("/Users/stein02/Desktop/Plots for the Sweeps/Figure_3/figures/Sweep_sim.png", fig5B, width = 4^a, height = 3^a)
-
-
-
-### A different legend
-
-legend_1 <- "simulations, µ=10<sup>-4"
-legend_2 <- "simulations, µ=10<sup>-5"
-legend_3 <- "simulations, µ=10<sup>-6"
-
-shapes <- t(c(16,17,18))
-colnames(shapes) <- c(legend_1, legend_2, legend_3)
-
-ggplot() +
-  geom_line(aes(x=2:20, y=df_num$twodim), size=1.5, col=cols[3]) +
-  geom_line(aes(x=xaxis, y=sweep_ana), linewidth=1.5, col=cols[4], linetype = "22") +
-  geom_point(aes(x=x_data, y=y_data1, shape=legend_1), size=4.0) +
-  geom_point(aes(x=x_data, y=y_data2, shape=legend_2), size=4.0) +
-  geom_point(aes(x=x_data, y=y_data3, shape=legend_3), size=4.0) +
-  labs(x="relative selective advantage, *s<sub>m* / *s<sub>wt*", y="Pr(sweep)") +
-  xlim(1,20) + ylim(0,1) +
+  scale_linetype_manual(values = linetypes) +
   scale_shape_manual(values = shapes) +
+  
+  # if you want ordering, add breaks AFTER it works:
+  # scale_color_manual(values = colours, breaks = c(pred_1, pred_2)) +
+  # scale_linetype_manual(values = linetypes, breaks = c(pred_1, pred_2)) +
+  # scale_shape_manual(values = shapes, breaks = c(sim_1, sim_2, sim_3)) +
+  
+  labs(x = "ratio of fitness difference, *a<sub>m</sub>* / *a<sub>wt</sub>*",
+       y = "Pr(sweep)") +
+  coord_cartesian(xlim = c(1, 20), ylim = c(0, 1)) +
+  
   theme_bw(base_size = 25) +
-  theme(axis.title.x = element_markdown(), axis.title.y = element_markdown(), 
-        legend.position = c(0.8,0.2), legend.title = element_blank(), 
-        legend.text = element_markdown())
+  theme(
+    axis.title.x = element_markdown(),
+    axis.title.y = element_markdown(),
+    legend.text  = element_markdown(),
+    legend.title = element_blank(),
+    legend.position = c(0.75, 0.3),
+    legend.box.spacing = grid::unit(0, "pt"),
+    legend.spacing.y   = grid::unit(0, "pt")
+  )
 
-fig5B2 <- ggplot() +
-  geom_line(aes(x=2:20, y=df_num$twodim), size=1.5, col=cols[3]) +
-  geom_line(aes(x=xaxis, y=sweep_ana), linewidth=1.5, col=cols[4], linetype = "22") +
-  geom_point(aes(x=x_data, y=y_data1, shape=legend_1), size=4.0) +
-  geom_point(aes(x=x_data, y=y_data2, shape=legend_2), size=4.0) +
-  geom_point(aes(x=x_data, y=y_data3, shape=legend_3), size=4.0) +
-  labs(x="relative selective advantage, *s<sub>m* / *s<sub>wt*", y="Pr(sweep)") +
-  xlim(1,20) + ylim(0,1) +
-  scale_shape_manual(values = shapes) +
-  theme_bw(base_size = 25) +
-  theme(axis.title.x = element_markdown(), axis.title.y = element_markdown(), 
-        legend.position = c(0.7,0.2), legend.title = element_blank(), 
-        legend.text = element_markdown())
-
-a = 1.5
-ggsave("/Users/stein02/Desktop/Plots for the Sweeps/final figures/fig5Ball2.png", fig5B2, width = 4^a, height = 3^a)
-
-
+a=1.5
+ggsave(paste(pathtosave,"sweeps_validate.png", sep=""), fig, width = 4^a, height = 3^a)
 

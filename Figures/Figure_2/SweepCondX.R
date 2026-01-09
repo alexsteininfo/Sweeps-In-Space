@@ -6,8 +6,9 @@ library("tidyverse")
 library("ggtext")
 library("RColorBrewer")
 
-setwd("/Users/stein02/Desktop/Plots for the Sweeps/Figure_2/")
-
+# Make sure to start in the correct working directory
+setwd("~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_2")
+pathtosave <- "~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_2/figures/"
 
 ### Import data and conversions
 
@@ -47,7 +48,7 @@ PrSweepX <- sqrt(pi)*alpha_1d/(2*x_values)*exp(-x_values^2/alpha_1d^2)*erf(x_val
 
 ### Plots
 
-cols <- brewer.pal(12,"Paired")
+cols <- RColorBrewer::brewer.pal(12, "Paired")
 
 legend_1 <- "1D exact"
 legend_2 <- "1D approx."
@@ -56,11 +57,25 @@ legend_4 <- "2D approx."
 legend_5 <- "3D exact"
 legend_6 <- "3D approx."
 
-colours <- t(c(cols[2], cols[1], cols[4], cols[3], cols[8], cols[7]))
-colnames(colours) <- c(legend_1, legend_2, legend_3, legend_4, legend_5, legend_6)
-lty <- t(c("22", "solid", "22", "solid", "22", "solid"))
-colnames(lty) <- c(legend_1, legend_2, legend_3, legend_4, legend_5, legend_6)
+colours <- c(
+  "1D exact"   = cols[2],
+  "1D approx." = cols[1],
+  "2D exact"   = cols[4],
+  "2D approx." = cols[3],
+  "3D exact"   = cols[8],
+  "3D approx." = cols[7]
+)
 
+lty <- c(
+  "1D exact"   = "22",
+  "1D approx." = "solid",
+  "2D exact"   = "22",
+  "2D approx." = "solid",
+  "3D exact"   = "22",
+  "3D approx." = "solid"
+)
+
+x_values[1] <- 0.0
 
 ggplot() + 
   geom_line(aes(x=x_values, y=PrSweepX, color=legend_1, linetype=legend_1), linewidth=1.5) +
@@ -97,7 +112,7 @@ fig <- ggplot() +
         legend.position = c(0.175,0.5), legend.title = element_blank(), legend.text = element_markdown())
 
 a = 1.5
-ggsave("/Users/stein02/Desktop/Plots for the Sweeps/Figure_2/figures/SweepCondX.png", fig, width = 4^a, height = 3^a)
+ggsave(paste(pathtosave,"SweepCondX.pdf",sep=""), fig, width = 4^a, height = 3^a)
 
 
 

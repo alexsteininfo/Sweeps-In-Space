@@ -5,6 +5,8 @@ library("tidyverse")
 library("ggtext")
 library("RColorBrewer")
 
+pathtosave <- "~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_3/figures/"
+
 r_wt <- 0.01
 r_m_1 <- 1:100*r_wt
 
@@ -13,8 +15,6 @@ chi = 0.95
 p_exp1 <- r_m_1
 p_exp2 <- r_m_1
 p_exp3 <- r_m_1
-
-
 
 j <-1
 for (r_m in r_m_1){
@@ -75,8 +75,10 @@ legend_2 <- "fixed population size"
 
 cols <- brewer.pal(12,"Paired")
 
-lcol <- t(c(cols[4], cols[12]))
-colnames(lcol) <- c(legend_1, legend_2)
+lcol <- c(
+  "exponential growth"     = cols[4],
+  "fixed population size"  = cols[12]
+)
 
 ggplot() + 
   geom_line(aes(x=xaxis, y=p_exp1, color=legend_1), linewidth=1.5, linetype = "solid") +
@@ -92,7 +94,7 @@ ggplot() +
   theme_bw(base_size = 25) +
   theme(axis.title.x = element_markdown(), axis.title.y = element_markdown(), 
         legend.position = c(0.74,0.48), legend.title = element_blank(),
-        legend.text = element_markdown())
+        legend.text = element_markdown()) + theme(legend.position = "none")
 
 
 fig <- ggplot() + 
@@ -109,8 +111,17 @@ fig <- ggplot() +
   theme_bw(base_size = 25) +
   theme(axis.title.x = element_markdown(), axis.title.y = element_markdown(), 
         legend.position = c(0.74,0.48), legend.title = element_blank(),
-        legend.text = element_markdown())
+        legend.text = element_markdown()) + theme(legend.position = "none")
 
 a = 1.5
-ggsave("/Users/stein02/Desktop/upload/Figures/Figure_4_new/SweepExp90.png", fig, width = 4^a, height = 3^a)
+ggsave(paste(pathtosave,"SweepExp90.pdf"), fig, width = 4^a, height = 3^a)
+
+leg <- cowplot::get_legend(
+  fig + theme(
+    legend.position = "right",
+    legend.title = element_blank()
+  )
+)
+
+ggsave(paste(pathtosave,"SweepExp90_leg.pdf"), leg, width = 4^a, height = 3^a)
 

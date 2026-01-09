@@ -7,8 +7,8 @@ library("RColorBrewer")
 
 ### Import data
 
-setwd("/Users/stein02/Desktop/upload/Figures/supp_4/")
-
+pathtosave <- "~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_3/figures/"
+setwd("~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_3/")
 
 df <- read_csv("numerical_data/sweep probability vs speed ratio c_wt 0.152 mutation rate 2.34e-06 simplifying assumption 0 2.csv")
 df <- rename(df, c("ratio"="Speed ratio", "twodim"="2D", "threedim"="3D"))
@@ -28,17 +28,17 @@ mu <- 0.23*10^(-5)
 
 c_m <- 0:100/10*c_wt
 
-#s_wt <- 0.10
-#s_m <- c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0, 1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0)
+s_wt <- 0.10
+s_m <- c(0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0, 1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0)
 
-#r_wt_1 <- 1.0
-#r_m_1 <- c(1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0, 2.1,2.2,2.3,2.4,2.5,2.6,2.7,2.8,2.9,3.0)
+r_wt_1 <- 1.0
+r_m_1 <- c(1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,2.0, 2.1,2.2,2.3,2.4,2.5,2.6,2.7,2.8,2.9,3.0)
 
 p_approx <- (c_m-c_wt)^3/c_m^3
 p_approx_2D <- (c_m-c_wt)^2/c_m^2
 
 v <- c_m/c_wt
-beta <- sqrt(v^2-1)
+beta <- sqrt(pmax(v^2 - 1, 0))
 p_antal <- ((9+beta^2)/beta^2)*2/(1+exp(3*pi/beta))
 
 x0=10
@@ -78,11 +78,19 @@ legend_3 <- "fixed population size"
 
 cols <- brewer.pal(12,"Paired")
 
-colours <- t(c(cols[8],cols[10],cols[6]))
-colnames(colours) <- c(legend_1, legend_2, legend_3)
+# named colour vector (NOT a matrix)
+colours <- c(
+  "dispersal throughout"   = cols[8],
+  "boundary growth"        = cols[10],
+  "fixed population size"  = cols[6]
+)
 
-lty <- t(c("solid", "solid", "solid"))
-colnames(lty) <- c(legend_1, legend_2, legend_3)
+# named linetype vector
+lty <- c(
+  "dispersal throughout"   = "solid",
+  "boundary growth"        = "solid",
+  "fixed population size"  = "solid"
+)
 
 
 ggplot() + 
@@ -99,7 +107,8 @@ ggplot() +
   #xlim(1,10) + ylim(0,1) +
   theme_bw(base_size = 25) +
   theme(axis.title.x = element_markdown(), axis.title.y = element_markdown(), 
-        legend.position = c(0.74,0.82), legend.title = element_blank()) #+
+        legend.position = c(0.74,0.82), legend.title = element_blank()) + theme(legend.position = "none")
+
 #theme(axis.title.x = element_markdown(), axis.title.y = element_markdown(), legend.position = "none", legend.title = element_blank())
 
 
@@ -118,11 +127,19 @@ fig <- ggplot() +
   #xlim(1,10) + ylim(0,1) +
   theme_bw(base_size = 25) +
   theme(axis.title.x = element_markdown(), axis.title.y = element_markdown(), 
-        legend.position = c(0.74,0.82), legend.title = element_blank()) #+
+        legend.position = c(0.74,0.82), legend.title = element_blank()) + theme(legend.position = "none")
+
 #theme(axis.title.x = element_markdown(), axis.title.y = element_markdown(), legend.position = "none", legend.title = element_blank())
 
 a = 1.5
-ggsave("/Users/stein02/Desktop/upload/Figures/Figure_4_new/SweepAlt.png", fig, width = 4^a, height = 3^a)
+ggsave(paste(pathtosave,"SweepAlt.pdf"), fig, width = 4^a, height = 3^a)
 
+leg <- cowplot::get_legend(
+  fig + theme(
+    legend.position = "right",
+    legend.title = element_blank()
+  )
+)
 
+ggsave(paste(pathtosave,"SweepAlt_leg.pdf"), leg, width = 4^a, height = 3^a)
 

@@ -8,7 +8,7 @@ library("ggtext")     # for text conversion in axis labels
 library("RColorBrewer")
 
 # Make sure to start in the correct working directory
-#setwd("/Figures/Figure_2/")
+pathtosave <- "~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_2/figures/"
 
 # Define paramters
 mu <- 1e-5
@@ -62,6 +62,6 @@ fig3A <- ggplot() +
         legend.position = c(0.9,0.8), legend.title = element_blank(), legend.text = element_markdown())
 
 a = 1.5
-ggsave("/figures/fig3A.png", fig3A, width = 4^a, height = 3^a)
+ggsave(paste(pathtosave,"fig2A.pdf",sep=""), fig3A, width = 4^a, height = 3^a)
 
 

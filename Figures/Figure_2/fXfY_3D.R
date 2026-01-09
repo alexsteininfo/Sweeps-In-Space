@@ -7,7 +7,8 @@ library("expint")     # import of incomplete gamma function
 library("ggtext")     # for text conversion in axis labels
 library("RColorBrewer")
 
-setwd("/Users/alexanderstein/Documents/GitHub/Sweeps-In-Space/Figures/Figure_2/figures/")
+# Make sure to start in the correct working directory
+pathtosave <- "~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_2/figures/"
 
 # Define paramters
 mu <- 1e-5
@@ -60,7 +61,7 @@ fig3C <- ggplot() +
         legend.position = c(0.9,0.8), legend.title = element_blank(), legend.text = element_markdown())
 
 a = 1.5
-ggsave("fig3C.png", fig3C, width = 4^a, height = 3^a)
+ggsave(paste(pathtosave,"fig2C.pdf",sep=""), fig3C, width = 4^a, height = 3^a)
 
 
 

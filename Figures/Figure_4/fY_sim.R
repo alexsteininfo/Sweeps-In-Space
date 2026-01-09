@@ -14,7 +14,8 @@ library("RColorBrewer")
 ### Import data ###
 ###################
 
-setwd("/Users/stein02/Desktop/upload/Figures/Figure_3/")
+pathtosave <- "~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_4/figures/"
+setwd("~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_4/")
 
 origins <- read_tsv("origin_data/origins.tsv")
 params <- read_csv("origin_data/params.csv")
@@ -86,8 +87,7 @@ fig <- ggplot() + geom_histogram(aes(x=df_f$Y, y=..density.., linetype=legend_1)
 
 
 a = 1.5
-ggsave("/Users/stein02/Desktop/upload/Figures/Figure_3/figures/fY_sim.png", fig, width = 4^a, height = 3^a)
-
+ggsave(paste(pathtosave,"fY_sim.pdf", sep=""), fig, width = 4^a, height = 3^a)
 
 
 
