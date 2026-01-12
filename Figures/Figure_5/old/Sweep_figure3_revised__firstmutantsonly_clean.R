@@ -22,6 +22,8 @@ b1 <- 1 # base birth rate
 ### Import data ###
 ###################
 
+setwd("~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_5/data/Simulation_results/")
+
 ### Simulation data
 params <- read_csv("simulation_data_original/params.csv") 
 probs <- read_csv("simulation_data_original/sweeps-prob.csv") 

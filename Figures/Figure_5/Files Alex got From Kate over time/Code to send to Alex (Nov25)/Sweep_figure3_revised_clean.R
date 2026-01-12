@@ -38,60 +38,60 @@ param_mut <- read_csv("simulation_data_original/params_mut_expanded.csv")
 meas_mut <- read_csv("simulation_data_original/mut_speeds_expanded.csv")
 
 ### Revised data - unlimited random mutations
-params_revised <- read_csv("simulation_data_revised/1000_sims/params.csv") 
-probs_revised <- read_csv("simulation_data_revised/1000_sims/sweeps-prob-descendants.csv") 
-birth_rates_mean <- read_csv("simulation_data_revised/1000_sims/birth_rates_end_mean.csv") 
+params_revised <- read_csv("Revised_sims_used/simulation_data_revised/1000_sims/params.csv") 
+probs_revised <- read_csv("Revised_sims_used/simulation_data_revised/1000_sims/sweeps-prob-descendants.csv") 
+birth_rates_mean <- read_csv("Revised_sims_used/simulation_data_revised/1000_sims/birth_rates_end_mean.csv") 
 
-params_revised2 <- read_csv("simulation_data_s015/params.csv") 
-probs_revised2 <- read_csv("simulation_data_s015/sweeps-prob-descendants.csv") 
-birth_rates_mean2 <- read_csv("simulation_data_s015/birth_rates_end_mean_all.csv") 
+params_revised2 <- read_csv("Revised_sims_used/simulation_data_s015/params.csv") 
+probs_revised2 <- read_csv("Revised_sims_used/simulation_data_s015/sweeps-prob-descendants.csv") 
+birth_rates_mean2 <- read_csv("Revised_sims_used/simulation_data_s015/birth_rates_end_mean_all.csv") 
 
-params_revised3 <- read_csv("005_data/unlimited/params.csv") 
-probs_revised3 <- read_csv("005_data/unlimited/sweeps-prob-descendants.csv") 
-birth_rates_mean3 <- read_csv("005_data/unlimited/birth_rates_end_mean_all.csv") 
+params_revised3 <- read_csv("Revised_sims_used/005_data/unlimited/params.csv") 
+probs_revised3 <- read_csv("Revised_sims_used/005_data/unlimited/sweeps-prob-descendants.csv") 
+birth_rates_mean3 <- read_csv("Revised_sims_used/005_data/unlimited/birth_rates_end_mean_all.csv") 
 
-params_revised4 <- read_csv("0075_data/0075_unlimited/params.csv") 
-probs_revised4 <- read_csv("0075_data/0075_unlimited/sweeps-prob-descendants.csv") 
-birth_rates_mean4 <- read_csv("0075_data/0075_unlimited/birth_rates_end_mean_all.csv") 
+params_revised4 <- read_csv("Revised_sims_used/0075_data/0075_unlimited/params.csv") 
+probs_revised4 <- read_csv("Revised_sims_used/0075_data/0075_unlimited/sweeps-prob-descendants.csv") 
+birth_rates_mean4 <- read_csv("Revised_sims_used/0075_data/0075_unlimited/birth_rates_end_mean_all.csv") 
 
 ### Revised data - 3 random mutations
-params_revised_3muts <- read_csv("simulation_data_3muts/params.csv") 
-probs_revised_3muts <- read_csv("simulation_data_3muts/sweeps-prob-descendants.csv") 
-birth_rates_mean_3muts <- read_csv("simulation_data_3muts/birth_rates_end_mean_all.csv") 
+params_revised_3muts <- read_csv("Revised_sims_used/simulation_data_3muts/params.csv") 
+probs_revised_3muts <- read_csv("Revised_sims_used/simulation_data_3muts/sweeps-prob-descendants.csv") 
+birth_rates_mean_3muts <- read_csv("Revised_sims_used/simulation_data_3muts/birth_rates_end_mean_all.csv") 
 
-params_revised_3muts2 <- read_csv("005_data/3_mut/params.csv") 
-probs_revised_3muts2 <- read_csv("005_data/3_mut/sweeps-prob-descendants.csv") 
-birth_rates_mean_3muts2 <- read_csv("005_data/3_mut/birth_rates_end_mean_all.csv") 
+params_revised_3muts2 <- read_csv("Revised_sims_used/005_data/3_mut/params.csv") 
+probs_revised_3muts2 <- read_csv("Revised_sims_used/005_data/3_mut/sweeps-prob-descendants.csv") 
+birth_rates_mean_3muts2 <- read_csv("Revised_sims_used/005_data/3_mut/birth_rates_end_mean_all.csv") 
 
-params_revised_3muts3 <- read_csv("0075_data/0075_3/params.csv") 
-probs_revised_3muts3 <- read_csv("0075_data/0075_3/sweeps-prob-descendants.csv") 
-birth_rates_mean_3muts3 <- read_csv("0075_data/0075_3/birth_rates_end_mean_all.csv") 
+params_revised_3muts3 <- read_csv("Revised_sims_used/0075_data/0075_3/params.csv") 
+probs_revised_3muts3 <- read_csv("Revised_sims_used/0075_data/0075_3/sweeps-prob-descendants.csv") 
+birth_rates_mean_3muts3 <- read_csv("Revised_sims_used/0075_data/0075_3/birth_rates_end_mean_all.csv") 
 
 ### Revised data - 2 random mutations
-params_revised_2muts <- read_csv("simulation_data_2muts/params.csv") 
-probs_revised_2muts <- read_csv("simulation_data_2muts/sweeps-prob-descendants.csv") 
-birth_rates_mean_2muts <- read_csv("simulation_data_2muts/birth_rates_end_mean_all.csv") 
+params_revised_2muts <- read_csv("Revised_sims_used/simulation_data_2muts/params.csv") 
+probs_revised_2muts <- read_csv("Revised_sims_used/simulation_data_2muts/sweeps-prob-descendants.csv") 
+birth_rates_mean_2muts <- read_csv("Revised_sims_used/simulation_data_2muts/birth_rates_end_mean_all.csv") 
 
-params_revised_2muts2 <- read_csv("005_data/2_mut/params.csv") 
-probs_revised_2muts2 <- read_csv("005_data/2_mut/sweeps-prob-descendants.csv") 
-birth_rates_mean_2muts2 <- read_csv("005_data/2_mut/birth_rates_end_mean_all.csv") 
+params_revised_2muts2 <- read_csv("Revised_sims_used/005_data/2_mut/params.csv") 
+probs_revised_2muts2 <- read_csv("Revised_sims_used/005_data/2_mut/sweeps-prob-descendants.csv") 
+birth_rates_mean_2muts2 <- read_csv("Revised_sims_used/005_data/2_mut/birth_rates_end_mean_all.csv") 
 
-params_revised_2muts3 <- read_csv("0075_data/0075_2/params.csv") 
-probs_revised_2muts3 <- read_csv("0075_data/0075_2/sweeps-prob-descendants.csv") 
-birth_rates_mean_2muts3 <- read_csv("0075_data/0075_2/birth_rates_end_mean_all.csv") 
+params_revised_2muts3 <- read_csv("Revised_sims_used/0075_data/0075_2/params.csv") 
+probs_revised_2muts3 <- read_csv("Revised_sims_used/0075_data/0075_2/sweeps-prob-descendants.csv") 
+birth_rates_mean_2muts3 <- read_csv("Revised_sims_used/0075_data/0075_2/birth_rates_end_mean_all.csv") 
 
 ### Revised data - 1 random mutation
-params_revised_1mut <- read_csv("simulation_data_1mut/params.csv") 
-probs_revised_1mut <- read_csv("simulation_data_1mut/sweeps-prob-descendants.csv") 
-birth_rates_mean_1mut <- read_csv("simulation_data_1mut/birth_rates_end_mean_all.csv") 
+params_revised_1mut <- read_csv("Revised_sims_used/simulation_data_1mut/params.csv") 
+probs_revised_1mut <- read_csv("Revised_sims_used/simulation_data_1mut/sweeps-prob-descendants.csv") 
+birth_rates_mean_1mut <- read_csv("Revised_sims_used/simulation_data_1mut/birth_rates_end_mean_all.csv") 
 
-params_revised_1mut2 <- read_csv("005_data/1_mut/params.csv") 
-probs_revised_1mut2 <- read_csv("005_data/1_mut/sweeps-prob-descendants.csv") 
-birth_rates_mean_1mut2 <- read_csv("005_data/1_mut/birth_rates_end_mean_all.csv") 
+params_revised_1mut2 <- read_csv("Revised_sims_used/005_data/1_mut/params.csv") 
+probs_revised_1mut2 <- read_csv("Revised_sims_used/005_data/1_mut/sweeps-prob-descendants.csv") 
+birth_rates_mean_1mut2 <- read_csv("Revised_sims_used/005_data/1_mut/birth_rates_end_mean_all.csv") 
 
-params_revised_1mut3 <- read_csv("0075_data/0075_1/params.csv") 
-probs_revised_1mut3 <- read_csv("0075_data/0075_1/sweeps-prob-descendants.csv") 
-birth_rates_mean_1mut3 <- read_csv("0075_data/0075_1/birth_rates_end_mean_all.csv") 
+params_revised_1mut3 <- read_csv("Revised_sims_used/0075_data/0075_1/params.csv") 
+probs_revised_1mut3 <- read_csv("Revised_sims_used/0075_data/0075_1/sweeps-prob-descendants.csv") 
+birth_rates_mean_1mut3 <- read_csv("Revised_sims_used/0075_data/0075_1/birth_rates_end_mean_all.csv") 
 
 # join the data sets
 # revised - unlimited mutations
@@ -344,16 +344,16 @@ shapes <- c(17)  # Shape for simulation points (triangle)
 names(shapes) <- c(legend_1)
 
 # Plot
-ggplot() +
+plotB <-ggplot() +
   # Bar plots with legends
   geom_bar(aes(x = b_bins_plotting, y = y_data6, fill = legend_7), stat = 'identity',
-           colour = "darkgrey", position = "dodge", width = b_bins_width, alpha = 0.7) + # one mutation
+           colour = "darkgrey", position = "dodge", width = b_bins_width, alpha = 0.7, linewidth = 0.5) + # one mutation
   geom_bar(aes(x = b_bins_plotting, y = y_data5, fill = legend_6), stat = 'identity',
-           colour = "darkgrey", position = "dodge", width = b_bins_width, alpha = 0.7) + # two mutations
+           colour = "darkgrey", position = "dodge", width = b_bins_width, alpha = 0.7, linewidth = 0.5) + # two mutations
   geom_bar(aes(x = b_bins_plotting, y = y_data4, fill = legend_5), stat = 'identity',
-           colour = "darkgrey", position = "dodge", width = b_bins_width, alpha = 0.7) + # three mutations
+           colour = "darkgrey", position = "dodge", width = b_bins_width, alpha = 0.7, linewidth = 0.5) + # three mutations
   geom_bar(aes(x = b_bins_plotting, y = y_data3, fill = legend_4), stat = 'identity',
-           colour = "darkgrey", position = "dodge", width = b_bins_width, alpha = 0.7) + # unlimited mutations
+           colour = "darkgrey", position = "dodge", width = b_bins_width, alpha = 0.7, linewidth = 0.5) + # unlimited mutations
   
   # Lines for predictions
   geom_line(aes(x = 2:100, y = df_num$twodim, linetype = legend_2, color = legend_2), size = 1.5) +
@@ -414,3 +414,7 @@ ggplot() +
       byrow = TRUE
     )
   )
+
+print(plotB)
+
+
