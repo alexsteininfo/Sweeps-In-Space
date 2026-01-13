@@ -17,19 +17,23 @@ setwd("~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_5/data/Revised_sims_use
 #Unlimited case
 params <- read_csv("simulation_data_revised/1000_sims/params.csv")
 probs <- read_csv("simulation_data_revised/1000_sims/sweeps-prob-descendants.csv")
-sweeps <- read_csv("simulation_data_revised/1000_sims/sweeps-all.csv")
+#sweeps <- read_csv("simulation_data_revised/1000_sims/sweeps-all.csv")
+sweeps <- read_csv("sweeps_all/unlimited/main batch unlimited/sweeps-all.csv")
 
 params_revised2 <- read_csv("simulation_data_s015/params.csv")
 probs_revised2 <- read_csv("simulation_data_s015/sweeps-prob-descendants.csv")
-sweeps2 <- read_csv("simulation_data_s015/sweeps-all.csv")
+#sweeps2 <- read_csv("simulation_data_s015/sweeps-all.csv")
+sweeps2 <- read_csv("sweeps_all/unlimited/s 015 unlimited/sweeps-all.csv")
 
 params_revised3 <- read_csv("005_data/unlimited/params.csv") 
 probs_revised3 <- read_csv("005_data/unlimited/sweeps-prob-descendants.csv") 
-sweeps3 <- read_csv("005_data/unlimited/sweeps-all.csv") 
+#sweeps3 <- read_csv("005_data/unlimited/sweeps-all.csv") 
+sweeps3 <- read_csv("sweeps_all/unlimited/s 005 unlimited/sweeps-all.csv")
 
 params_revised4 <- read_csv("0075_data/0075_unlimited/params.csv")
 probs_revised4 <- read_csv("0075_data/0075_unlimited/sweeps-prob-descendants.csv")
-sweeps4 <- read_csv("0075_data/0075_unlimited/sweeps-all.csv")
+#sweeps4 <- read_csv("0075_data/0075_unlimited/sweeps-all.csv")
+sweeps4 <- read_csv("sweeps_all/unlimited/s 0075 unlimited/sweeps-all.csv")
 
 # # 2 max mutations
 # params <- read_csv("simulation_data_2muts/params.csv")
@@ -181,6 +185,14 @@ g3<-ggplot(df_summary, aes(x = factor(s_tilde), y = proportion_post_adjustment, 
   theme(
     axis.text.x = element_text(size = 14), #angle = 45, hjust = 1),
     axis.text.y = element_text(size = 14),
-    axis.title = element_text(size = 25)
+    axis.title = element_text(size = 25),
+    legend.position = c(0.10,0.72),
+    legend.title = element_blank(),
+    legend.margin = margin(2.0, 2.0, 2.0, 2.0)
   )
 print(g3)
+
+ggsave("~/Documents/GitHub/Sweeps-In-Space/Figures/Figure_5/figures/multiple_sweeps.pdf", g3, width = 4^a, height = 3^a)
+
+
+

@@ -205,9 +205,13 @@ fig <- ggplot() +
     legend.title = element_blank(),
     legend.position = c(0.75, 0.3),
     legend.box.spacing = grid::unit(0, "pt"),
-    legend.spacing.y   = grid::unit(0, "pt")
+    legend.spacing.y   = grid::unit(0, "pt"),
+    legend.box.margin  = margin(0, 0, 0, 0),
+    legend.margin      = margin(0, 0, 0, 0)
   )
 
+fig
+
 a=1.5
-ggsave(paste(pathtosave,"sweeps_validate.png", sep=""), fig, width = 4^a, height = 3^a)
+ggsave(paste(pathtosave,"sweeps_validate.pdf", sep=""), fig, device = cairo_pdf, width = 4^a, height = 3^a)
 
