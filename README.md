@@ -1,6 +1,6 @@
 # Selective sweep probabilities in spatially expanding populations
 
-This repository provides code used in the manuscript "Selective sweep probabilities in spatially expanding populations" (**bioRxiv**, 2023). The paper can be found in [this link](https://doi.org/10.1101/2023.11.27.568915).
+This repository provides code used in the manuscript "Selective sweep probabilities in spatially expanding populations" (**Nature Communications**, 2026).
 
 The code files are divided into folders:
 - **Mathematica scripts** contains calculations with Mathematica.
